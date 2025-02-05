@@ -1,3 +1,5 @@
+from matrix_utils import print_matrix
+
 matrix_a = [
     [1, 2],
     [5, 3]
@@ -23,11 +25,5 @@ def addition(f_matrix, s_matrix):
         
     print_matrix(r_matrix)
     return
-
-def print_matrix(matrix):
-    for m in range(len(matrix)):
-        for j in range(len(matrix[m])):
-            print(matrix[m][j], end=" ")
-        print()
 
 addition(matrix_a, matrix_b)
