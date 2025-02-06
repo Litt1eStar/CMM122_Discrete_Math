@@ -1,11 +1,11 @@
 numbers = [4,5,1,3,2, 9,0 ,2, 1,3 ,12, 40 ,23, 4,5 , 0, 90]
 
-def bubble_sort(list_of_numbers):
-    for i in range(len(list_of_numbers)):
+def bubble_sort(array):
+    for i in range(len(array)):
         swapped = False
-        for j in range(0, len(list_of_numbers) - i - 1):
-            if(list_of_numbers[j] > list_of_numbers[j + 1]):
-                list_of_numbers[j], list_of_numbers[j + 1] = list_of_numbers[j + 1], list_of_numbers[j]
+        for j in range(0, len(array) - i - 1):
+            if(array[j] > array[j + 1]):
+                array[j], array[j + 1] = array[j + 1], array[j]
                 swapped = True
         if not swapped:
             break

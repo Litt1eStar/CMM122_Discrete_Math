@@ -2,16 +2,16 @@ import math
 
 numbers = [1,2,3,4,5,6,7,8,9]
 
-def binary_search(list_of_numbers, target_number):
+def binary_search(array, target_number):
     i = 0
-    j = len(list_of_numbers)
+    j = len(array)
     location = -1
     while(i < j):
         m = math.floor((i+j)/2)
-        if(target_number > list_of_numbers[m]):i = m + 1
+        if(target_number > array[m]):i = m + 1
         else: j = m
     
-    if(list_of_numbers[i] == target_number):
+    if(array[i] == target_number):
         location = i
     
     return location
