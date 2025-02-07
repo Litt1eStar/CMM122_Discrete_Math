@@ -26,20 +26,34 @@ def operator_ui():
     
     choice = int(input(":"))
     
-    if(choice == 1):matrix()
-    elif(choice == 2):function_and_relation()
-    elif(choice == 3):Set()
+    if(choice == 1):main_matrix()
+    elif(choice == 2):main_function_and_relation()
+    elif(choice == 3):main_set()
     elif(choice == 4):main_menu()
-def matrix():
-    print("Matrix")
+    
+def main_matrix():
+    print("Choose Operation")
+    print("(1) Addition")
+    print("(2) Subtraction")
+    print("(3) Multiply")
+    print("(4) Go Previous Page")
+    
+    choice = int(input(":"))
+    print(choice)
+
+def main_function_and_relation():
+    print("Choose Operation")
+    print("(1) Check Function")
+    print("(2) Go Previous Page")
     return
 
-def function_and_relation():
-    print("Function and Relation")
-    return
-
-def Set():
-    print("Set")
+def main_set():
+    print("Choose Operation")
+    print("(1) Union")
+    print("(2) Intersect")
+    print("(3) Difference")
+    print("(4) Complement")
+    print("(5) Go Previous Page")
     return
 
 main()
