@@ -20,29 +20,18 @@ def matrix_menu():
             matrix_multiplication()
 
 def matrix_addition():
-    print("Performing Matrix Addition...")
-    sizex_f = int(input("Maximum Row of First Matrix: "))
-    sizey_f = int(input("Maximum Column of First Matrix: "))
-
-    sizex_s = int(input("Maximum Row of Second Matrix: "))
-    sizey_s = int(input("Maximum Column of Second Matrix: "))
-    
-    input_matrix = create_matrix("Addition", sizex_f, sizey_f, sizex_s, sizey_s)
+    sizes = get_input_for_matrix_size()    
+    input_matrix = create_matrix("Addition", sizes[0], sizes[1], sizes[2], sizes[3])
     addition(input_matrix[0], input_matrix[1])
     
 def matrix_subtraction():
-    print("Performing Matrix Subtraction...")
+    sizes = get_input_for_matrix_size()  
+    input_matrix = create_matrix("Subtraction", sizes[0], sizes[1], sizes[2], sizes[3])
 
 def matrix_multiplication():
-    print("Performing Matrix Multiplication...")
-    sizex_f = int(input("Maximum Row of First Matrix: "))
-    sizey_f = int(input("Maximum Column of First Matrix: "))
+    sizes = get_input_for_matrix_size()    
+    input_matrix = create_matrix("Multiplication", sizes[0], sizes[1], sizes[2], sizes[3])
 
-    sizex_s = int(input("Maximum Row of Second Matrix: "))
-    sizey_s = int(input("Maximum Column of Second Matrix: "))
-    
-    create_matrix("Multiplication", sizex_f, sizey_f, sizex_s, sizey_s)
-    
 def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
     is_valid = False
     err_msg = ""
@@ -78,4 +67,18 @@ def addition(matrix_a, matrix_b):
         for col in range(len(matrix_a[0])):
             result_matrix[row][col] = matrix_a[row][col] + matrix_b[row][col]
     
-    print_matrix(result_matrix)
+def subtraction(matrix_a, matrix_b):
+    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
+    
+    for row in range(len(matrix_a)):
+        for col in range(len(matrix_a[0])):
+            result_matrix[row][col] = matrix_a[row][col] - matrix_b[row][col]        
+
+def get_input_for_matrix_size():   
+    sizex_f = int(input("Maximum Row of First Matrix: "))
+    sizey_f = int(input("Maximum Column of First Matrix: "))
+
+    sizex_s = int(input("Maximum Row of Second Matrix: "))
+    sizey_s = int(input("Maximum Column of Second Matrix: "))
+    
+    return [sizex_f, sizey_f, sizex_s, sizey_s]
