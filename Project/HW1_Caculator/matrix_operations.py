@@ -23,6 +23,8 @@ def matrix_menu():
             matrix_subtraction()
         elif choice == 3:
             matrix_multiplication()
+        elif choice == 4:
+            matrix_scalar_multiplication()
 def matrix_addition():
     sizes = get_input_for_matrix_size()    
     input_matrix = create_matrix("Addition", sizes[0], sizes[1], sizes[2], sizes[3])
@@ -66,6 +68,32 @@ def matrix_multiplication():
                 result_matrix[row][col] += matrix_a[row][k] * matrix_b[k][col]
                 
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A * Matrix B = {result_matrix}")
+def matrix_scalar_multiplication():
+    sizex = int(input("Maximum Row of Matrix: "))
+    sizey = int(input("Maximum Column of Matrix: "))
+    
+    matrix = [[0] * sizey for _ in range(sizex)]
+    
+    for row in range(0, sizex):
+        for col in range(0, sizey):
+            val = int(input(f"Matrix | Enter Value of POsition [{row}][{col}]: "))
+            matrix[row][col] = val
+    
+    scalarVal = int(input("Scalar Value : "))
+    
+    for row in range(sizex):
+        for col in range(sizey):
+            matrix[row][col] *= scalarVal
+    
+    print(f"Result Matrix -> {matrix}")
+def matrix_transpose():
+    return
+def matrix_determinant():
+    return
+def matrix_inverse():
+    return
+def matrix_eigenvalues_eigenvectors():
+    return
 def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
     is_valid = False
     err_msg = ""
