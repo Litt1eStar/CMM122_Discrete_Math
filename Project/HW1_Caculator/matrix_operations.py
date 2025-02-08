@@ -25,6 +25,9 @@ def matrix_menu():
             matrix_multiplication()
         elif choice == 4:
             matrix_scalar_multiplication()
+        elif choice == 5:
+            matrix_transpose()
+            
 def matrix_addition():
     sizes = get_input_for_matrix_size()    
     input_matrix = create_matrix("Addition", sizes[0], sizes[1], sizes[2], sizes[3])
@@ -77,7 +80,13 @@ def matrix_scalar_multiplication():
     
     print(f"Result Matrix -> {matrix}")
 def matrix_transpose():
-    return
+    matrix = create_single_matrix()
+    result_matrix = [[0] * len(matrix) for _ in range(len(matrix[0]))]
+    for row in range(len(matrix)):
+        for col in range(len(matrix[0])):
+            result_matrix[col][row] = matrix[row][col]
+    print(f"Matrix: {matrix} -> Transpose Matrix: {result_matrix}")
+    
 def matrix_determinant():
     return
 def matrix_inverse():
