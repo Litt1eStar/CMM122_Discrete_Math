@@ -14,13 +14,26 @@ def function_menu():
             check_function()
 
 def check_function():
-    set_to_check = create_set()
+    set_to_check = create_relation()
     
-def create_set():
-    size = int(input("Size of Set you want to create: "))
+    temp_domain = -1
+    isFunction = True
+    for coordinate in set_to_check:
+        if(coordinate[0]==temp_domain):
+            isFunction = False
+        else:
+            temp_domain = coordinate[0]
+
+    if(isFunction): print(f"{set_to_check} is Function")
+    else: print(f"{set_to_check} is not Function")        
+
+def create_relation():
+    size = int(input("Size of relation you want to create: "))
     set = {*{}}
     for i in range(size):
-        val = int(input("Value to Insert to new set: "))
-        set.add(val)
+        xVal = int(input(f"Element {i+1} | Value x: "))
+        yVal = int(input(f"Element {i+1} | Value y: "))
+        set.add((xVal, yVal))
     return set
+    
 
