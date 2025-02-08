@@ -23,19 +23,19 @@ def set_menu():
         elif choice == 4:
             set_complement()
 
-def set_union(setA: list, setB: list):        
+def set_union(setA: list, setB: list):      
+    temp = setA  
     #Merge 2 set together
     for val in setB:
         setA.append(val)
         
     #Then Sorting it using Bubble Sort Algorithm
-    listA = list(setA)
-    for i in range(len(listA)):
-        for j in range(len(listA) - i - 1):
-            if(listA[j] > listA[j+1]):
-                listA[j], listA[j+1] = listA[j+1], listA[j]
+    for i in range(len(setA)):
+        for j in range(len(setA) - i - 1):
+            if(setA[j] > setA[j+1]):
+                setA[j], setA[j+1] = setA[j+1], setA[j]
     
-    print(listA)
+    print(f"Set A : {temp} | Set B : {setB} \nSet A Union with Set B = {setA}")
             
 
 def set_intersection(setA: list, setB: list):
