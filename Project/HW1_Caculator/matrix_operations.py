@@ -69,20 +69,10 @@ def matrix_multiplication():
                 
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A * Matrix B = {result_matrix}")
 def matrix_scalar_multiplication():
-    sizex = int(input("Maximum Row of Matrix: "))
-    sizey = int(input("Maximum Column of Matrix: "))
-    
-    matrix = [[0] * sizey for _ in range(sizex)]
-    
-    for row in range(0, sizex):
-        for col in range(0, sizey):
-            val = int(input(f"Matrix | Enter Value of POsition [{row}][{col}]: "))
-            matrix[row][col] = val
-    
+    matrix = create_single_matrix()
     scalarVal = int(input("Scalar Value : "))
-    
-    for row in range(sizex):
-        for col in range(sizey):
+    for row in range(len(matrix)):
+        for col in range(len(matrix[0])):
             matrix[row][col] *= scalarVal
     
     print(f"Result Matrix -> {matrix}")
@@ -121,6 +111,20 @@ def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
             second_matrix[row][col] = val
             
     return [first_matrix, second_matrix]            
+
+def create_single_matrix():
+    sizex = int(input("Maximum Row of Matrix: "))
+    sizey = int(input("Maximum Column of Matrix: "))
+    
+    matrix = [[0] * sizey for _ in range(sizex)]
+    
+    for row in range(0, sizex):
+        for col in range(0, sizey):
+            val = int(input(f"Matrix | Enter Value of POsition [{row}][{col}]: "))
+            matrix[row][col] = val
+    
+    return matrix
+
 def get_input_for_matrix_size():   
     sizex_f = int(input("Maximum Row of First Matrix: "))
     sizey_f = int(input("Maximum Column of First Matrix: "))
