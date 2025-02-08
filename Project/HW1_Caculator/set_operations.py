@@ -19,7 +19,7 @@ def set_menu():
         elif choice == 2:
             set_intersection(sets[0], sets[1])
         elif choice == 3:
-            set_difference()
+            set_difference(sets[0], sets[1])
         elif choice == 4:
             set_complement()
 
@@ -37,8 +37,17 @@ def set_intersection(setA, setB):
     
     print(f"Set A : {setA} | Set B : {setB} \nSet A Intersect with Set B = {result_set}")
 
-def set_difference():
-    print("Performing Set Difference...")
+def set_difference(setA, setB):
+    result_set = {*{}}
+    for val in setA:
+        for lookupVal in setB:
+            if(val == lookupVal):
+                break
+            elif(val != lookupVal and not result_set.__contains__(val)):
+                result_set.add(val)
+        
+
+    print(f"Set A : {setA} | Set B : {setB} \nSet A Difference with Set B = {result_set}")
 
 def set_complement():
     print("Performing Set Complement...")
