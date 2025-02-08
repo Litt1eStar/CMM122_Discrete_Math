@@ -6,10 +6,15 @@ def matrix_menu():
         print("(1) Addition")
         print("(2) Subtraction")
         print("(3) Multiplication")
-        print("(4) Return to Previous Menu")
+        print("(4) Scalar Multiplication")
+        print("(5) Transpose of Matrix")
+        print("(6) Determinant of Matrix")
+        print("(7) Inverse of Matrix")
+        print("(8) Eigenvalues and Eigenvectors")
+        print("Return to Mainmenu")
 
-        choice = get_choice(1, 4)
-        if choice == 4:
+        choice = get_choice(1, 9)
+        if choice == 8:
             break
 
         if choice == 1:
@@ -18,22 +23,49 @@ def matrix_menu():
             matrix_subtraction()
         elif choice == 3:
             matrix_multiplication()
-
 def matrix_addition():
     sizes = get_input_for_matrix_size()    
     input_matrix = create_matrix("Addition", sizes[0], sizes[1], sizes[2], sizes[3])
-    addition(input_matrix[0], input_matrix[1])
     
+    matrix_a = input_matrix[0]
+    matrix_b = input_matrix[1]
+    
+    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
+    
+    for row in range(len(matrix_a)):
+        for col in range(len(matrix_a[0])):
+            result_matrix[row][col] = matrix_a[row][col] + matrix_b[row][col]
+    
+    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A + Matrix B = {result_matrix}")
 def matrix_subtraction():
     sizes = get_input_for_matrix_size()  
     input_matrix = create_matrix("Subtraction", sizes[0], sizes[1], sizes[2], sizes[3])
-    subtraction(input_matrix[0], input_matrix[1])
+    
+    matrix_a = input_matrix[0]
+    matrix_b = input_matrix[1]
+    
+    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
+    
+    for row in range(len(matrix_a)):
+        for col in range(len(matrix_a[0])):
+            result_matrix[row][col] = matrix_a[row][col] - matrix_b[row][col]        
 
+    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A - Matrix B = {result_matrix}")
 def matrix_multiplication():
     sizes = get_input_for_matrix_size()    
     input_matrix = create_matrix("Multiplication", sizes[0], sizes[1], sizes[2], sizes[3])
-    multiply(input_matrix[0], input_matrix[1])
-
+    
+    matrix_a = input_matrix[0]
+    matrix_b = input_matrix[1]
+    
+    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_b[0]))]
+    
+    for row in range(len(matrix_a)):
+        for col in range(len(matrix_b[0])):
+            for k in range(len(matrix_b[0])):
+                result_matrix[row][col] += matrix_a[row][k] * matrix_b[k][col]
+                
+    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A * Matrix B = {result_matrix}")
 def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
     is_valid = False
     err_msg = ""
@@ -60,36 +92,7 @@ def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
             val = int(input(f"Second Matrix | Enter Value of Position [{row}][{col}]: "))
             second_matrix[row][col] = val
             
-    return [first_matrix, second_matrix]
-
-def addition(matrix_a, matrix_b):
-    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
-    
-    for row in range(len(matrix_a)):
-        for col in range(len(matrix_a[0])):
-            result_matrix[row][col] = matrix_a[row][col] + matrix_b[row][col]
-    
-    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A + Matrix B = {result_matrix}")
-    
-def subtraction(matrix_a, matrix_b):
-    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
-    
-    for row in range(len(matrix_a)):
-        for col in range(len(matrix_a[0])):
-            result_matrix[row][col] = matrix_a[row][col] - matrix_b[row][col]        
-
-    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A - Matrix B = {result_matrix}")
-
-def multiply(matrix_a, matrix_b):
-    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_b[0]))]
-    
-    for row in range(len(matrix_a)):
-        for col in range(len(matrix_b[0])):
-            for k in range(len(matrix_b[0])):
-                result_matrix[row][col] += matrix_a[row][k] * matrix_b[k][col]
-                
-    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A * Matrix B = {result_matrix}")
-                
+    return [first_matrix, second_matrix]            
 def get_input_for_matrix_size():   
     sizex_f = int(input("Maximum Row of First Matrix: "))
     sizey_f = int(input("Maximum Column of First Matrix: "))
