@@ -27,6 +27,8 @@ def matrix_menu():
             matrix_scalar_multiplication()
         elif choice == 5:
             matrix_transpose()
+        elif choice == 6:
+            matrix_determinant()
             
 def matrix_addition():
     sizes = get_input_for_matrix_size()    
@@ -88,7 +90,32 @@ def matrix_transpose():
     print(f"Matrix: {matrix} -> Transpose Matrix: {result_matrix}")
     
 def matrix_determinant():
-    return
+    matrix = create_single_matrix()
+    det = determinant(matrix)
+    print(f"Matrix: {matrix}")
+    print(f"Determinant of Matrix = {det}") 
+    
+def determinant(matrix):
+    size_of_matrix = len(matrix)
+    if(size_of_matrix==1):
+        return matrix[0][0]
+    elif(size_of_matrix==2):
+        return matrix[0][0]*matrix[1][1] - matrix[0][1]*matrix[1][0]
+    
+    det = 0
+    for col in range(size_of_matrix):
+        sub_matrix = []
+        for lookup_row_index in range(1, size_of_matrix): #Skip First Row(at index 0)
+            new_row = []
+            for lookup_column_index in range(size_of_matrix):
+                if(lookup_column_index != col): #If column that is lookup not same as column that we are calculating
+                    new_row.append(matrix[lookup_row_index][lookup_column_index])
+            sub_matrix.append(new_row)
+        
+        det += ((-1)** col) * matrix[0][col] * determinant(sub_matrix)
+    
+    return det
+
 def matrix_inverse():
     return
 def matrix_eigenvalues_eigenvectors():
