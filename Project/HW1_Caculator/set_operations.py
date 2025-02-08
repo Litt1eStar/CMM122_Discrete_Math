@@ -15,7 +15,7 @@ def set_menu():
         
         sets = create_set()
         if choice == 1:
-            set_union()
+            set_union(sets[0], sets[1])
         elif choice == 2:
             set_intersection(sets[0], sets[1])
         elif choice == 3:
@@ -23,28 +23,40 @@ def set_menu():
         elif choice == 4:
             set_complement()
 
-def set_union():
-    print("Performing Set Union...")
-
-def set_intersection(setA, setB):
-    result_set = {*{}}
+def set_union(setA: list, setB: list):        
+    #Merge 2 set together
+    for val in setB:
+        setA.append(val)
+        
+    #Then Sorting it using Bubble Sort Algorithm
+    listA = list(setA)
+    for i in range(len(listA)):
+        for j in range(len(listA) - i - 1):
+            if(listA[j] > listA[j+1]):
+                listA[j], listA[j+1] = listA[j+1], listA[j]
     
+    print(listA)
+            
+
+def set_intersection(setA: list, setB: list):
+    result_set = []
+
     for val in setA:
         for lookupVal in setB:
             if(lookupVal == val and not result_set.__contains__(lookupVal)):
-                result_set.add(lookupVal)
+                result_set.append(lookupVal)
                 break
     
     print(f"Set A : {setA} | Set B : {setB} \nSet A Intersect with Set B = {result_set}")
 
-def set_difference(setA, setB):
-    result_set = {*{}}
+def set_difference(setA: list, setB: list):
+    result_set = []
     for val in setA:
         for lookupVal in setB:
             if(val == lookupVal):
                 break
             elif(val != lookupVal and not result_set.__contains__(val)):
-                result_set.add(val)
+                result_set.append(val)
         
 
     print(f"Set A : {setA} | Set B : {setB} \nSet A Difference with Set B = {result_set}")
@@ -56,15 +68,15 @@ def create_set():
     sizeA = int(input("Size of Set A: "))
     sizeB = int(input("Size of Set B: "))
     
-    setA = {*{}}
-    setB = {*{}}
+    setA = []
+    setB = []
     
     for i in range(sizeA):
         val = int(input(f"Element {i} | Value : "))
-        setA.add(val)
+        setA.append(val)
         
     for i in range(sizeB):
         val = int(input(f"Element {i} | Value : "))
-        setB.add(val)
+        setB.append(val)
         
     return [setA, setB]
