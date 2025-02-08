@@ -32,6 +32,7 @@ def matrix_subtraction():
 def matrix_multiplication():
     sizes = get_input_for_matrix_size()    
     input_matrix = create_matrix("Multiplication", sizes[0], sizes[1], sizes[2], sizes[3])
+    multiply(input_matrix[0], input_matrix[1])
 
 def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
     is_valid = False
@@ -76,7 +77,17 @@ def subtraction(matrix_a, matrix_b):
             result_matrix[row][col] = matrix_a[row][col] - matrix_b[row][col]        
 
     print_matrix(result_matrix)
+
+def multiply(matrix_a, matrix_b):
+    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_b[0]))]
     
+    for row in range(len(matrix_a)):
+        for col in range(len(matrix_b[0])):
+            for k in range(len(matrix_b[0])):
+                result_matrix[row][col] += matrix_a[row][k] * matrix_b[k][col]
+                
+    print_matrix(result_matrix)
+                
 def get_input_for_matrix_size():   
     sizex_f = int(input("Maximum Row of First Matrix: "))
     sizey_f = int(input("Maximum Column of First Matrix: "))
