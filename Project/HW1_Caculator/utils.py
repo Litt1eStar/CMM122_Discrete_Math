@@ -8,3 +8,9 @@ def get_choice(min_val, max_val):
                 print("Invalid Choice")
         except ValueError:
             print("Invalid Input")
+            
+def print_matrix(matrix):
+    for m in range(len(matrix)):
+        for j in range(len(matrix[m])):
+            print(matrix[m][j], end=" ")
+        print()
