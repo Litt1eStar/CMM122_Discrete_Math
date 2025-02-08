@@ -17,7 +17,7 @@ def set_menu():
         if choice == 1:
             set_union()
         elif choice == 2:
-            set_intersection()
+            set_intersection(sets[0], sets[1])
         elif choice == 3:
             set_difference()
         elif choice == 4:
@@ -26,8 +26,16 @@ def set_menu():
 def set_union():
     print("Performing Set Union...")
 
-def set_intersection():
-    print("Performing Set Intersection...")
+def set_intersection(setA, setB):
+    result_set = {*{}}
+    
+    for val in setA:
+        for lookupVal in setB:
+            if(lookupVal == val and not result_set.__contains__(lookupVal)):
+                result_set.add(lookupVal)
+                break
+    
+    print(f"Set A : {setA} | Set B : {setB} \nSet A Intersect with Set B = {result_set}")
 
 def set_difference():
     print("Performing Set Difference...")
@@ -50,5 +58,4 @@ def create_set():
         val = int(input(f"Element {i} | Value : "))
         setB.add(val)
         
-    print(setA)
-    print(setB)
+    return [setA, setB]
