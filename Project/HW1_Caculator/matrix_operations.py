@@ -69,6 +69,8 @@ def addition(matrix_a, matrix_b):
         for col in range(len(matrix_a[0])):
             result_matrix[row][col] = matrix_a[row][col] + matrix_b[row][col]
     
+    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A + Matrix B = {result_matrix}")
+    
 def subtraction(matrix_a, matrix_b):
     result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
     
@@ -76,7 +78,7 @@ def subtraction(matrix_a, matrix_b):
         for col in range(len(matrix_a[0])):
             result_matrix[row][col] = matrix_a[row][col] - matrix_b[row][col]        
 
-    print_matrix(result_matrix)
+    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A - Matrix B = {result_matrix}")
 
 def multiply(matrix_a, matrix_b):
     result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_b[0]))]
@@ -86,7 +88,7 @@ def multiply(matrix_a, matrix_b):
             for k in range(len(matrix_b[0])):
                 result_matrix[row][col] += matrix_a[row][k] * matrix_b[k][col]
                 
-    print_matrix(result_matrix)
+    print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A * Matrix B = {result_matrix}")
                 
 def get_input_for_matrix_size():   
     sizex_f = int(input("Maximum Row of First Matrix: "))
