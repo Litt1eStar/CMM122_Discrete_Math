@@ -21,7 +21,7 @@ def set_menu():
         elif choice == 3:
             set_difference(sets[0], sets[1])
         elif choice == 4:
-            set_complement()
+            set_complement(sets[0], sets[1])
 
 def set_union(setA: list, setB: list):      
     temp = setA  
@@ -42,27 +42,28 @@ def set_intersection(setA: list, setB: list):
     result_set = []
 
     for val in setA:
-        for lookupVal in setB:
-            if(lookupVal == val and not result_set.__contains__(lookupVal)):
-                result_set.append(lookupVal)
-                break
+        if(val in setB and not result_set.__contains__(val)):
+            result_set.append(val)
     
     print(f"Set A : {setA} | Set B : {setB} \nSet A Intersect with Set B = {result_set}")
 
 def set_difference(setA: list, setB: list):
     result_set = []
     for val in setA:
-        for lookupVal in setB:
-            if(val == lookupVal):
-                break
-            elif(val != lookupVal and not result_set.__contains__(val)):
-                result_set.append(val)
+        if(val not in setB):
+            result_set.append(val)
         
 
     print(f"Set A : {setA} | Set B : {setB} \nSet A Difference with Set B = {result_set}")
 
-def set_complement():
-    print("Performing Set Complement...")
+def set_complement(setA: list, setB: list):
+    result_set = []
+    
+    for val in setB:
+        if(val not in setA):
+            result_set.append(val)
+                
+    print(f"Set A : {setA} | Set B : {setB} \nSet A Complement with Set B = {result_set}")
 
 def create_set():
     sizeA = int(input("Size of Set A: "))
