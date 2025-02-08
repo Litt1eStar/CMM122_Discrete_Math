@@ -14,4 +14,13 @@ def function_menu():
             check_function()
 
 def check_function():
-    print("Checking whether a relation is a function...")
+    set_to_check = create_set()
+    
+def create_set():
+    size = int(input("Size of Set you want to create: "))
+    set = {*{}}
+    for i in range(size):
+        val = int(input("Value to Insert to new set: "))
+        set.add(val)
+    return set
+
