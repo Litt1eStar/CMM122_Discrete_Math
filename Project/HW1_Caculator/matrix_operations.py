@@ -27,7 +27,8 @@ def matrix_addition():
     sizex_s = int(input("Maximum Row of Second Matrix: "))
     sizey_s = int(input("Maximum Column of Second Matrix: "))
     
-    create_matrix("Addition", sizex_f, sizey_f, sizex_s, sizey_s)
+    input_matrix = create_matrix("Addition", sizex_f, sizey_f, sizex_s, sizey_s)
+    addition(input_matrix[0], input_matrix[1])
     
 def matrix_subtraction():
     print("Performing Matrix Subtraction...")
@@ -67,4 +68,14 @@ def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
         for col in range(0, sizey_s):
             val = int(input(f"Second Matrix | Enter Value of Position [{row}][{col}]: "))
             second_matrix[row][col] = val
+            
+    return [first_matrix, second_matrix]
 
+def addition(matrix_a, matrix_b):
+    result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
+    
+    for row in range(len(matrix_a)):
+        for col in range(len(matrix_a[0])):
+            result_matrix[row][col] = matrix_a[row][col] + matrix_b[row][col]
+    
+    print_matrix(result_matrix)
