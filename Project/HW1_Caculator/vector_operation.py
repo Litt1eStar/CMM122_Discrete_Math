@@ -9,12 +9,10 @@ def vector_menu():
         print("(3) Scalar Multiplication")
         print("(4) Dot Product")
         print("(5) Cross Product")
-        print("(6) Find Vector Magnitude")
-        print("(7) Vector Normalizatino")
-        print("(8) Return to Mainmenu")
+        print("(6) Return to Mainmenu")
 
-        choice = get_choice(1, 8)
-        if choice == 8:
+        choice = get_choice(1, 6)
+        if choice == 6:
             break
         
         if choice == 1:            
@@ -27,10 +25,6 @@ def vector_menu():
             vector_dot_product()
         elif choice == 5:
             vector_cross_product()
-        elif choice == 6:
-            vector_magnitude()
-        elif choice == 7:
-            vector_normalization()
             
 def vector_addition():
     vectors = create_two_vector()
@@ -81,13 +75,21 @@ def vector_dot_product():
     print(f"Vector A: {vector_a}, Vector B: {vector_b} | Dot Product = {result}")
     
 def vector_cross_product():
-    return
+    vectors = create_two_vector()
+    vector_a = vectors[0]
+    vector_b = vectors[1]
 
-def vector_magnitude():
-    return
+    if len(vector_a) != 3 or len(vector_b) != 3:
+        print("Cross product is only defined for 3-dimensional vectors")
+        return
 
-def vector_normalization():
-    return
+    result_vector = [
+        vector_a[1] * vector_b[2] - vector_a[2] * vector_b[1],  
+        vector_a[2] * vector_b[0] - vector_a[0] * vector_b[2],  
+        vector_a[0] * vector_b[1] - vector_a[1] * vector_b[0]   
+    ]
+    
+    print(f"Cross Product: {result_vector}")
 
 def create_two_vector():
     size_of_vector = int(input("Size of Vector(2, 3): "))
