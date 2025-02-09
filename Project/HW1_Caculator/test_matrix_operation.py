@@ -17,6 +17,13 @@ class TestMatrixOperations(unittest.TestCase):
         result = matrix_subtraction(matrix_a, matrix_b)
         self.assertEqual(result, expected_result)
 
-
+    def test_matrix_multiplication(self):
+        matrix_a = [[1, 2], [3, 4]]
+        matrix_b = [[5, 6], [7, 8]]
+        expected_result = [[19, 22], [43, 50]]
+        
+        result = matrix_multiplication(matrix_a, matrix_b)
+        self.assertEqual(result, expected_result)
+        
 if __name__ == '__main__':
     unittest.main()
