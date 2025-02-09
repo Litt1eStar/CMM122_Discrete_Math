@@ -14,7 +14,7 @@ def set_menu():
         ]
         
         print(Fore.GREEN + "\n\tSet Operations\n" + Style.RESET_ALL)
-        print(tabulate(menu_options, headers=["Options", "Operation"], tablefmt="heavy_outline"))
+        print(tabulate(menu_options, headers=["Options", "Operation"], tablefmt="fancy_grid"))
         
         choice = get_choice(1, 5)
         if choice == 5:

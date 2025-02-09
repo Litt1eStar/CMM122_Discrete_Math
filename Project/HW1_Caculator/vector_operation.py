@@ -15,7 +15,7 @@ def vector_menu():
         ]
         
         print(Fore.GREEN + "\n\tVector Operations\n" + Style.RESET_ALL)
-        print(tabulate(menu_options, headers=["Options", "Operation"], tablefmt="heavy_outline"))
+        print(tabulate(menu_options, headers=["Options", "Operation"], tablefmt="fancy_grid"))
         
         choice = get_choice(1, 6)
         if choice == 6:
