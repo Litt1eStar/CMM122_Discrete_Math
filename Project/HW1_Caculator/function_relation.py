@@ -1,9 +1,10 @@
-from utils import get_choice
+from utils import get_choice, clear_screen
 from colorama import Fore, Style
 from tabulate import tabulate
 
 def function_menu():
     while True:
+        clear_screen()
         menu_options = [
             ["1", "Is Function"],
             ["2", "Find Domain and Range"],

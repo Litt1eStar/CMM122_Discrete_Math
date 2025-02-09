@@ -1,4 +1,4 @@
-from utils import get_choice
+from utils import get_choice, clear_screen
 from matrix_operations import matrix_menu
 from function_relation import function_menu
 from set_operations import set_menu
@@ -8,7 +8,6 @@ from colorama import Fore, Style
 from tabulate import tabulate
 
 def main():
-    
     while True:
         choice = main_menu()
         
@@ -17,13 +16,13 @@ def main():
             
             
 def main_menu():
-    
+    clear_screen()
     menu_options = [
             ["1", "Start"],
             ["2", "Exit"],
         ]
 
-    print(Fore.WHITE + Style.BRIGHT + "\nWelcome to Super Calculator\n" + Style.RESET_ALL)
+    print(Fore.RED + Style.BRIGHT + "\nWelcome to Super Calculator\n" + Style.RESET_ALL)
     print(tabulate(menu_options, headers=["Option", "Operation"], tablefmt="mixed_outline"))
     
     choice = get_choice(1, 2)
@@ -31,6 +30,7 @@ def main_menu():
         
 def operator_ui():
     while True:
+        clear_screen()
         menu_options = [
             ["1", "Matrix"],
             ["2", "Function and Relation"],
@@ -39,7 +39,7 @@ def operator_ui():
             ["5", "Return to Main Menu"]
         ]
 
-        print(Fore.GREEN+ Style.BRIGHT + "\n     Welcome to Super Calculator\n" + Style.RESET_ALL)
+        print(Fore.GREEN+ Style.BRIGHT + "\n     What do you want to do?\n" + Style.RESET_ALL)
         print(tabulate(menu_options, headers=["Option", "Operation"], tablefmt="mixed_outline"))
         
         choice = get_choice(1, 5)

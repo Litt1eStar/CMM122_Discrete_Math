@@ -1,9 +1,10 @@
-from utils import get_choice, print_matrix
+from utils import get_choice, clear_screen
 from colorama import Fore, Style
 from tabulate import tabulate
 
 def matrix_menu():
     while True:
+        clear_screen()
         menu_options = [
             ["1", "Addition"],
             ["2", "Subtraction"],
