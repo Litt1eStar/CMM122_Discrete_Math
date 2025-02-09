@@ -23,7 +23,7 @@ def function_menu():
         elif choice == 4:
             is_surjective_function()
         elif choice == 5:
-            inverse_function()
+            inverse_relation()
 
 def isFunction():
     set_to_check = create_single_relation()
@@ -82,7 +82,7 @@ def is_surjective_function():
         seen.add(set_range[i])
     print(f"Set: {set} | Surjective Set ? : False")
     return False
-def inverse_function():
+def inverse_relation():
     set = create_single_relation()
     inverse_relation = {*{}}
     
