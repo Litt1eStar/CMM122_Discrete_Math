@@ -16,5 +16,20 @@ class TestVectorOperation(unittest.TestCase):
         result = vector_subtraction(vectors)
         self.assertEqual(result, expected_result)
         
+    def test_vector_scalar_multiplication(self):
+        vectors = [1, 2, 3]
+        scalar_value = 2
+        expected_result = [2, 4, 6]
+        
+        result = vector_scalar_multiplication(vectors, scalar_value)
+        self.assertEqual(result, expected_result)
+        
+    def test_vector_dot_product(self):
+        vectors = [[1, 2, 3], [4, 5, 6]]
+        expected_result = 32
+        
+        result = vector_dot_product(vectors)
+        self.assertEqual(result, expected_result)
+        
 if __name__ == '__main__':
     unittest.main()    

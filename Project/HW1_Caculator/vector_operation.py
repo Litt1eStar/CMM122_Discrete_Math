@@ -58,14 +58,16 @@ def vector_subtraction(vectors = None):
     print(f"Result Vector: {result_vector}")
     return result_vector
 
-def vector_scalar_multiplication(vectors = None):
-    if(vectors == None):
+def vector_scalar_multiplication(vector_a = None, scalar_value = None):
+    if(vector_a == None):
         vector_a = create_single_vector()
     
-    scalar_value = int(input("Scalar Value for Multiply to Vector: "))
+    if(scalar_value == None):
+        scalar_value = int(input("Scalar Value for Multiply to Vector: "))
     
     for i in range(len(vector_a)):vector_a[i] *= scalar_value
     print(f"Result Vector: {vector_a}")
+    return vector_a
     
 def vector_dot_product(vectors = None):
     if(vectors==None):
@@ -82,7 +84,8 @@ def vector_dot_product(vectors = None):
     for i in range(len(vector_a)):result+=vector_a[i]*vector_b[i]
     
     print(f"Vector A: {vector_a}, Vector B: {vector_b} | Dot Product = {result}")
-    
+    return result
+
 def vector_cross_product(vectors = None):
     if(vectors == None):
         vectors = create_two_vector()
