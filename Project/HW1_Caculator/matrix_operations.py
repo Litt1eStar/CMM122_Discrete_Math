@@ -33,13 +33,14 @@ def matrix_menu():
             result = matrix_inverse()
             print(f"Inverse of Matrix = {result}")
             
-def matrix_addition():
-    sizes = get_input_for_matrix_size()    
-    input_matrix = create_matrix("Addition", sizes[0], sizes[1], sizes[2], sizes[3])
-    
-    matrix_a = input_matrix[0]
-    matrix_b = input_matrix[1]
-    
+def matrix_addition(matrix_a = None, matrix_b = None):
+    if(matrix_a == None and matrix_b == None):
+        sizes = get_input_for_matrix_size()    
+        input_matrix = create_matrix("Addition", sizes[0], sizes[1], sizes[2], sizes[3])
+        
+        matrix_a = input_matrix[0]
+        matrix_b = input_matrix[1]
+        
     result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
     
     for row in range(len(matrix_a)):
@@ -47,7 +48,8 @@ def matrix_addition():
             result_matrix[row][col] = matrix_a[row][col] + matrix_b[row][col]
     
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A + Matrix B = {result_matrix}")
-
+    return result_matrix
+    
 def matrix_subtraction():
     sizes = get_input_for_matrix_size()  
     input_matrix = create_matrix("Subtraction", sizes[0], sizes[1], sizes[2], sizes[3])
