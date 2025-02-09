@@ -60,8 +60,12 @@ def vector_subtraction():
     print(f"Result Vector: {result_vector}")
 
 def vector_scalar_multiplication():
-    return
-
+    vector_a = create_single_vector()
+    scalar_value = int(input("Scalar Value for Multiply to Vector: "))
+    
+    for i in range(len(vector_a)):vector_a[i] *= scalar_value
+    print(f"Result Vector: {vector_a}")
+    
 def vector_dot_product():
     return
 
@@ -91,3 +95,14 @@ def create_two_vector():
     
     return [vector_a, vector_b]
         
+def create_single_vector():
+    size_of_vector = 3
+    
+    vector_a = []
+    
+    for i in range(size_of_vector):
+        vector_index = 'i' if i == 0 else 'j' if i == 1 else 'k' if i == 2 else None
+        val = int(input(f"First Vector | {vector_index}: "))
+        vector_a.append(val)
+        
+    return vector_a
