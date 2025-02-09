@@ -39,18 +39,34 @@ def isFunction():
     if(isFunction): print(f"{set_to_check} is Function")
     else: print(f"{set_to_check} is not Function")        
 
-def domain_and_range():
-    set = create_single_relation()
-    setDomain = []
-    setRange = []
+def domain_and_range(set = None):
+    if(set == None):
+        set = create_single_relation()
+        
+    setDomain = list()
+    setRange = list()
 
     for val in set:
         setDomain.append(val[0])
         setRange.append(val[1])
     
     print(f"Set: {set} | Domain: {setDomain}, Range: {setRange}")
+    return [setDomain, setRange]
+    
 def is_injective_function():
-    return
+    set = create_single_relation()
+    set_data = domain_and_range(set)
+    set_domain = set_data[0]
+    set_range = set_data[1]
+    
+    seen = {*{}}
+    for i in range(len(set_domain)):
+        if set_range[i] in seen:
+            print(f"Set: {set} | Injective Set ? : False")
+            return False
+        seen.add(set_range[i])
+    print(f"Set: {set} | Injective Set ? : True")
+    return True
 
 def is_surjective_function():
     return
