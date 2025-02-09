@@ -32,5 +32,12 @@ class TestMatrixOperations(unittest.TestCase):
         
         result = matrix_scalar_multiplication(matrix_a, scalar_value)
         self.assertEqual(result, expected_result)
+        
+    def test_matrix_transpose(self):
+        matrix_a = [[1, 2], [3, 4]]
+        expected_result = [[1,3], [2,4]]
+        
+        result = matrix_transpose(matrix_a)
+        self.assertEqual(result, expected_result)
 if __name__ == '__main__':
     unittest.main()

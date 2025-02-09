@@ -109,7 +109,7 @@ def matrix_transpose(matrix = None):
             result_matrix[col][row] = matrix[row][col]
     
     print(f"Matrix: {matrix} -> Transpose Matrix: {result_matrix}")
-    return matrix
+    return result_matrix
     
 def matrix_determinant(matrix = None):
     if(matrix == None):
