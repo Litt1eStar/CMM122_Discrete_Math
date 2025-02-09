@@ -36,7 +36,7 @@ def set_union(setA: list, setB: list):
                 setA[j], setA[j+1] = setA[j+1], setA[j]
     
     print(f"Set A : {temp} | Set B : {setB} \nSet A Union with Set B = {setA}")
-            
+    return setA        
 
 def set_intersection(setA: list, setB: list):
     result_set = []
@@ -46,6 +46,7 @@ def set_intersection(setA: list, setB: list):
             result_set.append(val)
     
     print(f"Set A : {setA} | Set B : {setB} \nSet A Intersect with Set B = {result_set}")
+    return result_set
 
 def set_difference(setA: list, setB: list):
     result_set = []
@@ -55,7 +56,8 @@ def set_difference(setA: list, setB: list):
         
 
     print(f"Set A : {setA} | Set B : {setB} \nSet A Difference with Set B = {result_set}")
-
+    return result_set
+    
 def set_complement(setA: list, setB: list):
     result_set = []
     
@@ -64,6 +66,7 @@ def set_complement(setA: list, setB: list):
             result_set.append(val)
                 
     print(f"Set A : {setA} | Set B : {setB} \nSet A Complement with Set B = {result_set}")
+    return result_set
 
 def create_set():
     sizeA = int(input("Size of Set A: "))

@@ -33,13 +33,14 @@ def matrix_menu():
             result = matrix_inverse()
             print(f"Inverse of Matrix = {result}")
             
-def matrix_addition():
-    sizes = get_input_for_matrix_size()    
-    input_matrix = create_matrix("Addition", sizes[0], sizes[1], sizes[2], sizes[3])
-    
-    matrix_a = input_matrix[0]
-    matrix_b = input_matrix[1]
-    
+def matrix_addition(matrix_a = None, matrix_b = None):
+    if(matrix_a == None and matrix_b == None):
+        sizes = get_input_for_matrix_size()    
+        input_matrix = create_matrix("Addition", sizes[0], sizes[1], sizes[2], sizes[3])
+        
+        matrix_a = input_matrix[0]
+        matrix_b = input_matrix[1]
+        
     result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
     
     for row in range(len(matrix_a)):
@@ -47,13 +48,15 @@ def matrix_addition():
             result_matrix[row][col] = matrix_a[row][col] + matrix_b[row][col]
     
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A + Matrix B = {result_matrix}")
-
-def matrix_subtraction():
-    sizes = get_input_for_matrix_size()  
-    input_matrix = create_matrix("Subtraction", sizes[0], sizes[1], sizes[2], sizes[3])
+    return result_matrix
     
-    matrix_a = input_matrix[0]
-    matrix_b = input_matrix[1]
+def matrix_subtraction(matrix_a = None, matrix_b = None):
+    if(matrix_a == None and matrix_b == None):
+        sizes = get_input_for_matrix_size()  
+        input_matrix = create_matrix("Subtraction", sizes[0], sizes[1], sizes[2], sizes[3])
+        
+        matrix_a = input_matrix[0]
+        matrix_b = input_matrix[1]
     
     result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_a[0]))]
     
@@ -62,13 +65,15 @@ def matrix_subtraction():
             result_matrix[row][col] = matrix_a[row][col] - matrix_b[row][col]        
 
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A - Matrix B = {result_matrix}")
+    return result_matrix
 
-def matrix_multiplication():
-    sizes = get_input_for_matrix_size()    
-    input_matrix = create_matrix("Multiplication", sizes[0], sizes[1], sizes[2], sizes[3])
-    
-    matrix_a = input_matrix[0]
-    matrix_b = input_matrix[1]
+def matrix_multiplication(matrix_a = None, matrix_b = None):
+    if(matrix_a == None and matrix_b == None):
+        sizes = get_input_for_matrix_size()    
+        input_matrix = create_matrix("Multiplication", sizes[0], sizes[1], sizes[2], sizes[3])
+        
+        matrix_a = input_matrix[0]
+        matrix_b = input_matrix[1]
     
     result_matrix = [[0] * len(matrix_a) for _ in range(len(matrix_b[0]))]
     
@@ -78,15 +83,21 @@ def matrix_multiplication():
                 result_matrix[row][col] += matrix_a[row][k] * matrix_b[k][col]
                 
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A * Matrix B = {result_matrix}")
+    return result_matrix
     
-def matrix_scalar_multiplication():
-    matrix = create_single_matrix()
-    scalarVal = int(input("Scalar Value : "))
+def matrix_scalar_multiplication(matrix = None, scalarVal = None):
+    if(matrix == None):
+        matrix = create_single_matrix()
+    
+    if(scalarVal == None):
+        scalarVal = int(input("Scalar Value : "))
+    
     for row in range(len(matrix)):
         for col in range(len(matrix[0])):
             matrix[row][col] *= scalarVal
     
     print(f"Result Matrix -> {matrix}")
+    return matrix
     
 def matrix_transpose(matrix = None):
     if(matrix == None):
@@ -96,14 +107,19 @@ def matrix_transpose(matrix = None):
     for row in range(len(matrix)):
         for col in range(len(matrix[0])):
             result_matrix[col][row] = matrix[row][col]
-    return matrix
-    #print(f"Matrix: {matrix} -> Transpose Matrix: {result_matrix}")
     
-def matrix_determinant():
-    matrix = create_single_matrix()
+    print(f"Matrix: {matrix} -> Transpose Matrix: {result_matrix}")
+    return result_matrix
+    
+def matrix_determinant(matrix = None):
+    if(matrix == None):
+        matrix = create_single_matrix()
+        
     det = determinant(matrix)
     print(f"Matrix: {matrix}")
     print(f"Determinant of Matrix = {det}") 
+    
+    return det
     
 def determinant(matrix):
     size_of_matrix = len(matrix)
@@ -126,8 +142,10 @@ def determinant(matrix):
     
     return det
 
-def matrix_inverse():
-    matrix = create_single_matrix()
+def matrix_inverse(matrix = None):
+    if(matrix == None):
+        matrix = create_single_matrix()
+    
     det = determinant(matrix)
     size_of_matrix = len(matrix)
     
@@ -156,7 +174,7 @@ def matrix_inverse():
                 minor_matrix.append(new_row)
             
             #Formula used to construct value cofactor value is (-1)^i+j * det(minor_matrix)
-            cofactor_matrix[col][row] = (-1) ** (row + col) * determinant(minor_matrix)
+            cofactor_matrix[row][col] = (-1) ** (row + col) * determinant(minor_matrix)
     
     #Last step to create inverse matrix is Transpose cofactor matrix then divide each value of matrix by det of original matrix
     inverse_matrix = matrix_transpose(cofactor_matrix)
@@ -164,6 +182,7 @@ def matrix_inverse():
         for col in range(size_of_matrix):
             inverse_matrix[row][col] = round(inverse_matrix[row][col] / det, 2)
 
+    print(f"Inverse Matrix: {inverse_matrix}")
     return inverse_matrix
         
 def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
