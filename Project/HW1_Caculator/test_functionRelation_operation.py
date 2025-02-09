@@ -13,5 +13,12 @@ class TestFunctionRelationOperation(unittest.TestCase):
 
         result2 = isFunction(relation2)
         self.assertEqual(result2, expected_result2)
+        
+    def test_domain_range(self):
+        relation = {(1,2), (3, 4)}
+        expected_result = [[1, 3], [2, 4]]
+        
+        result = domain_and_range(relation)
+        self.assertEqual(result, expected_result)
 if __name__ == '__main__':
     unittest.main()
