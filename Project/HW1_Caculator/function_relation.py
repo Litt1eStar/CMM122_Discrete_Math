@@ -25,8 +25,9 @@ def function_menu():
         elif choice == 5:
             inverse_relation()
 
-def isFunction():
-    set_to_check = create_single_relation()
+def isFunction(set_to_check = None):
+    if(set_to_check == None):
+        set_to_check = create_single_relation()
     
     temp_domain = -1
     isFunction = True
@@ -36,9 +37,13 @@ def isFunction():
         else:
             temp_domain = coordinate[0]
 
-    if(isFunction): print(f"{set_to_check} is Function")
-    else: print(f"{set_to_check} is not Function")        
-
+    if(isFunction):
+        print(f"{set_to_check} is Function")
+        return True
+    else:
+        print(f"{set_to_check} is not Function")        
+        return False
+    
 def domain_and_range(set = None):
     if(set == None):
         set = create_single_relation()
@@ -53,8 +58,9 @@ def domain_and_range(set = None):
     print(f"Set: {set} | Domain: {setDomain}, Range: {setRange}")
     return [setDomain, setRange]
     
-def is_injective_function():
-    set = create_single_relation()
+def is_injective_function(set = None):
+    if(set == None):
+        set = create_single_relation()
     set_data = domain_and_range(set)
     set_domain = set_data[0]
     set_range = set_data[1]
@@ -68,8 +74,9 @@ def is_injective_function():
     print(f"Set: {set} | Injective Set ? : True")
     return True
 
-def is_surjective_function():
-    set = create_single_relation()
+def is_surjective_function(set = None):
+    if(set == None):
+        set = create_single_relation()
     set_data = domain_and_range(set)
     set_domain = set_data[0]
     set_range = set_data[1]
@@ -82,8 +89,10 @@ def is_surjective_function():
         seen.add(set_range[i])
     print(f"Set: {set} | Surjective Set ? : False")
     return False
-def inverse_relation():
-    set = create_single_relation()
+
+def inverse_relation(set = None):
+    if(set==None):
+        set = create_single_relation()
     inverse_relation = {*{}}
     
     for x,y in set:
