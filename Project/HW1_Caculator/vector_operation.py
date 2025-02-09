@@ -16,3 +16,39 @@ def vector_menu():
         choice = get_choice(1, 8)
         if choice == 8:
             break
+        
+        if choice == 1:
+            vector_addition()
+        elif choice == 2:
+            vector_subtraction()
+        elif choice == 3:
+            vector_scalar_multiplication()
+        elif choice == 4:
+            vector_dot_product()
+        elif choice == 5:
+            vector_cross_product()
+        elif choice == 6:
+            vector_magnitude()
+        elif choice == 7:
+            vector_normalization()
+            
+def vector_addition():
+    return
+
+def vector_subtraction():
+    return
+
+def vector_scalar_multiplication():
+    return
+
+def vector_dot_product():
+    return
+
+def vector_cross_product():
+    return
+
+def vector_magnitude():
+    return
+
+def vector_normalization():
+    return
