@@ -9,5 +9,12 @@ class TestVectorOperation(unittest.TestCase):
         result = vector_addition(vectors)
         self.assertEqual(result, expected_result)
         
+    def test_vector_subtraction(self):
+        vectors = [[1, 2, 3], [1, 1, 1]]
+        expected_result = [0, 1, 2]
+        
+        result = vector_subtraction(vectors)
+        self.assertEqual(result, expected_result)
+        
 if __name__ == '__main__':
     unittest.main()    

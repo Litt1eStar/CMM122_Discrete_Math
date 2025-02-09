@@ -56,6 +56,7 @@ def vector_subtraction(vectors = None):
     result_vector = []
     for i in range(len(vector_a)):result_vector.append(vector_a[i] - vector_b[i])
     print(f"Result Vector: {result_vector}")
+    return result_vector
 
 def vector_scalar_multiplication(vectors = None):
     if(vectors == None):
