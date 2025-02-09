@@ -24,6 +24,13 @@ class TestMatrixOperations(unittest.TestCase):
         
         result = matrix_multiplication(matrix_a, matrix_b)
         self.assertEqual(result, expected_result)
+    
+    def test_matrix_scalar_multiplication(self):
+        matrix_a = [[1, 2], [3, 4]]
+        scalar_value = 10
+        expected_result = [[10, 20], [30, 40]]
         
+        result = matrix_scalar_multiplication(matrix_a, scalar_value)
+        self.assertEqual(result, expected_result)
 if __name__ == '__main__':
     unittest.main()

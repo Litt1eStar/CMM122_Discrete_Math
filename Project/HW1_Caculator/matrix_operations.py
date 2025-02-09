@@ -85,11 +85,13 @@ def matrix_multiplication(matrix_a = None, matrix_b = None):
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A * Matrix B = {result_matrix}")
     return result_matrix
     
-def matrix_scalar_multiplication(matrix = None):
+def matrix_scalar_multiplication(matrix = None, scalarVal = None):
     if(matrix == None):
         matrix = create_single_matrix()
-        
-    scalarVal = int(input("Scalar Value : "))
+    
+    if(scalarVal == None):
+        scalarVal = int(input("Scalar Value : "))
+    
     for row in range(len(matrix)):
         for col in range(len(matrix[0])):
             matrix[row][col] *= scalarVal
