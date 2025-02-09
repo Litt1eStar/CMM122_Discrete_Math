@@ -67,8 +67,19 @@ def vector_scalar_multiplication():
     print(f"Result Vector: {vector_a}")
     
 def vector_dot_product():
-    return
+    vectors = create_two_vector()
+    vector_a = vectors[0]
+    vector_b = vectors[1]
 
+    if(len(vector_a) != len(vector_b)):
+        print("Vector have to be same size")
+        return
+
+    result = 0
+    for i in range(len(vector_a)):result+=vector_a[i]*vector_b[i]
+    
+    print(f"Vector A: {vector_a}, Vector B: {vector_b} | Dot Product = {result}")
+    
 def vector_cross_product():
     return
 
@@ -79,8 +90,12 @@ def vector_normalization():
     return
 
 def create_two_vector():
-    size_of_vector = 3
+    size_of_vector = int(input("Size of Vector(2, 3): "))
 
+    if size_of_vector not in [2,3]:
+        print("This program support only 2D and 3D Matrix")
+        return
+    
     vector_a = []
     vector_b = []
     for i in range(size_of_vector):
@@ -96,7 +111,11 @@ def create_two_vector():
     return [vector_a, vector_b]
         
 def create_single_vector():
-    size_of_vector = 3
+    size_of_vector = int(input("Size of Vector(2, 3): "))
+    
+    if size_of_vector not in [2,3]:
+        print("This program support only 2D and 3D Matrix")
+        return
     
     vector_a = []
     
