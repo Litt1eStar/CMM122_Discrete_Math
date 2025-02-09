@@ -29,6 +29,9 @@ def matrix_menu():
             matrix_transpose()
         elif choice == 6:
             matrix_determinant()
+        elif choice == 7:
+            result = matrix_inverse()
+            print(result)
             
 def matrix_addition():
     sizes = get_input_for_matrix_size()    
@@ -81,13 +84,16 @@ def matrix_scalar_multiplication():
             matrix[row][col] *= scalarVal
     
     print(f"Result Matrix -> {matrix}")
-def matrix_transpose():
-    matrix = create_single_matrix()
+def matrix_transpose(matrix = None):
+    if(matrix == None):
+        matrix = create_single_matrix()
+
     result_matrix = [[0] * len(matrix) for _ in range(len(matrix[0]))]
     for row in range(len(matrix)):
         for col in range(len(matrix[0])):
             result_matrix[col][row] = matrix[row][col]
-    print(f"Matrix: {matrix} -> Transpose Matrix: {result_matrix}")
+    return matrix
+    #print(f"Matrix: {matrix} -> Transpose Matrix: {result_matrix}")
     
 def matrix_determinant():
     matrix = create_single_matrix()
@@ -117,7 +123,45 @@ def determinant(matrix):
     return det
 
 def matrix_inverse():
-    return
+    matrix = create_single_matrix()
+    det = determinant(matrix)
+    size_of_matrix = len(matrix)
+    
+    if det == 0:
+        print("This Matrix is Singular Matrix")
+        return None
+    
+    #Hard Code for Matrix of size 2
+    if size_of_matrix == 2:
+        return [[round(matrix[1][1]/det, 2), round(-matrix[0][1]/det, 2)], 
+                [round(-matrix[1][0]/det, 2), round(matrix[0][0]/det, 2)]]
+    
+    cofactor_matrix = [[0] * size_of_matrix for _ in range(size_of_matrix)]
+    for row in range(size_of_matrix):
+        for col in range(size_of_matrix):
+            minor_matrix = []
+            for lookup_row_index in range(size_of_matrix):
+                if lookup_row_index == row:
+                    continue
+                new_row = []
+                for lookup_col_index in range(size_of_matrix):
+                    if lookup_col_index == col:
+                        continue
+                    new_row.append(matrix[lookup_row_index][lookup_col_index])
+                
+                minor_matrix.append(new_row)
+            
+            #Formula used to construct value cofactor value is (-1)^i+j * det(minor_matrix)
+            cofactor_matrix[col][row] = (-1) ** (row + col) * determinant(minor_matrix)
+    
+    #Last step to create inverse matrix is Transpose cofactor matrix then divide each value of matrix by det of original matrix
+    inverse_matrix = matrix_transpose(cofactor_matrix)
+    for row in range(size_of_matrix):
+        for col in range(size_of_matrix):
+            inverse_matrix[row][col] = round(inverse_matrix[row][col] / det, 2)
+
+    return inverse_matrix
+        
 def matrix_eigenvalues_eigenvectors():
     return
 def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
