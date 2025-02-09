@@ -10,15 +10,14 @@ def matrix_menu():
         print("(5) Transpose of Matrix")
         print("(6) Determinant of Matrix")
         print("(7) Inverse of Matrix")
-        print("(8) Eigenvalues and Eigenvectors")
-        print("Return to Mainmenu")
+        print("(8) Return to Mainmenu")
 
-        choice = get_choice(1, 9)
+        choice = get_choice(1, 8)
         if choice == 8:
             break
 
         if choice == 1:
-            matrix_addition()
+            result = matrix_addition()
         elif choice == 2:
             matrix_subtraction()
         elif choice == 3:
@@ -26,12 +25,13 @@ def matrix_menu():
         elif choice == 4:
             matrix_scalar_multiplication()
         elif choice == 5:
-            matrix_transpose()
+            result = matrix_transpose()
+            print(f"Transpose of Matrix = {result}")
         elif choice == 6:
             matrix_determinant()
         elif choice == 7:
             result = matrix_inverse()
-            print(result)
+            print(f"Inverse of Matrix = {result}")
             
 def matrix_addition():
     sizes = get_input_for_matrix_size()    
