@@ -69,8 +69,19 @@ def is_injective_function():
     return True
 
 def is_surjective_function():
-    return
+    set = create_single_relation()
+    set_data = domain_and_range(set)
+    set_domain = set_data[0]
+    set_range = set_data[1]
 
+    seen = {*{}}
+    for i in range(len(set_domain)):
+        if set_range[i] in seen:
+            print(f"Set: {set} | Surjective Set ? : True")
+            return True
+        seen.add(set_range[i])
+    print(f"Set: {set} | Surjective Set ? : False")
+    return False
 def inverse_function():
     return
 
