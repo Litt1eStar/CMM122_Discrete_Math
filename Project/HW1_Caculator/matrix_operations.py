@@ -47,6 +47,7 @@ def matrix_addition():
             result_matrix[row][col] = matrix_a[row][col] + matrix_b[row][col]
     
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A + Matrix B = {result_matrix}")
+
 def matrix_subtraction():
     sizes = get_input_for_matrix_size()  
     input_matrix = create_matrix("Subtraction", sizes[0], sizes[1], sizes[2], sizes[3])
@@ -61,6 +62,7 @@ def matrix_subtraction():
             result_matrix[row][col] = matrix_a[row][col] - matrix_b[row][col]        
 
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A - Matrix B = {result_matrix}")
+
 def matrix_multiplication():
     sizes = get_input_for_matrix_size()    
     input_matrix = create_matrix("Multiplication", sizes[0], sizes[1], sizes[2], sizes[3])
@@ -76,6 +78,7 @@ def matrix_multiplication():
                 result_matrix[row][col] += matrix_a[row][k] * matrix_b[k][col]
                 
     print(f"Matrix A : {matrix_a} | Matrix B : {matrix_b} -> Matrix A * Matrix B = {result_matrix}")
+    
 def matrix_scalar_multiplication():
     matrix = create_single_matrix()
     scalarVal = int(input("Scalar Value : "))
@@ -84,6 +87,7 @@ def matrix_scalar_multiplication():
             matrix[row][col] *= scalarVal
     
     print(f"Result Matrix -> {matrix}")
+    
 def matrix_transpose(matrix = None):
     if(matrix == None):
         matrix = create_single_matrix()
@@ -162,8 +166,6 @@ def matrix_inverse():
 
     return inverse_matrix
         
-def matrix_eigenvalues_eigenvectors():
-    return
 def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
     is_valid = False
     err_msg = ""
