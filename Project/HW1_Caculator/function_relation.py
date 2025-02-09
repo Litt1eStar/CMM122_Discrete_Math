@@ -83,8 +83,14 @@ def is_surjective_function():
     print(f"Set: {set} | Surjective Set ? : False")
     return False
 def inverse_function():
-    return
-
+    set = create_single_relation()
+    inverse_relation = {*{}}
+    
+    for x,y in set:
+        inverse_relation.add((y, x))
+        
+    print(f"Relation: {set} | Inverse of Relation: {inverse_relation}")
+    
 def create_single_relation():
     size = int(input("Size of relation you want to create: "))
     set = {*{}}
