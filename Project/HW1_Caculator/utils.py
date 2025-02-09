@@ -1,3 +1,8 @@
+import os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def get_choice(min_val, max_val):
     while True:
         try:
