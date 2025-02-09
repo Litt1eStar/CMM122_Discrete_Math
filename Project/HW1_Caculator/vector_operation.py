@@ -3,7 +3,7 @@ from utils import get_choice
 
 def vector_menu():
     while True:
-        print("\Vector Operations:")
+        print("\nVector Operations:")
         print("(1) Addition")
         print("(2) Subtraction")
         print("(3) Scalar Multiplication")
@@ -36,15 +36,28 @@ def vector_addition():
     vectors = create_two_vector()
     vector_a = vectors[0]
     vector_b = vectors[1]
-    result_vector = [vector_a[0]+vector_b[0], vector_a[1]+vector_b[1], vector_a[2]+vector_b[2]]
-    print(result_vector)
+    
+    if(len(vector_a) != len(vector_b)):
+        print("Vector have to be same size")
+        return
+    
+    result_vector = []
+    for i in range(len(vector_a)):result_vector.append(vector_a[i] + vector_b[i])
+    print(f"Result Vector: {result_vector}")
+        
     
 def vector_subtraction():
     vectors = create_two_vector()
     vector_a = vectors[0]
     vector_b = vectors[1]
-    result_vector = [vector_a[0]-vector_b[0], vector_a[1]-vector_b[1], vector_a[2]-vector_b[2]]
-    print(result_vector)
+    
+    if(len(vector_a) != len(vector_b)):
+        print("Vector have to be same size")
+        return
+    
+    result_vector = []
+    for i in range(len(vector_a)):result_vector.append(vector_a[i] - vector_b[i])
+    print(f"Result Vector: {result_vector}")
 
 def vector_scalar_multiplication():
     return
