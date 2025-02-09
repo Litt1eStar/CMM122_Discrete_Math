@@ -10,6 +10,12 @@ class TestSetOperations(unittest.TestCase):
         result = set_union(setA, setB)
         self.assertEqual(result, expected_result)
     
-
+    def test_set_intersection(self):
+        setA = [1, 2, 3]
+        setB = [1, 2]
+        expected_result = [1, 2]
+        
+        result = set_intersection(setA, setB)
+        self.assertEqual(result, expected_result)
 if __name__ == '__main__':
     unittest.main()
