@@ -48,5 +48,14 @@ class TestMatrixOperations(unittest.TestCase):
         
         result = matrix_determinant(matrix_a)
         self.assertEqual(result, expected_result)
+        
+    def test_matrix_inverse(self):
+        matrix_a = [[1, 2, 3], [4, 5, 6], [7, 4, 9]]
+        expected_result = [[-0.88, 0.25, 0.13], [-0.25, 0.5, -0.25], [0.79, -0.42, 0.13]]
+        
+        result = matrix_inverse(matrix_a)
+        for row_r, row_e in zip(result, expected_result):
+            for val_r, val_e in zip(row_r, row_e):
+                self.assertAlmostEqual(val_r, val_e, delta=0.02)
 if __name__ == '__main__':
     unittest.main()

@@ -174,7 +174,7 @@ def matrix_inverse(matrix = None):
                 minor_matrix.append(new_row)
             
             #Formula used to construct value cofactor value is (-1)^i+j * det(minor_matrix)
-            cofactor_matrix[col][row] = (-1) ** (row + col) * determinant(minor_matrix)
+            cofactor_matrix[row][col] = (-1) ** (row + col) * determinant(minor_matrix)
     
     #Last step to create inverse matrix is Transpose cofactor matrix then divide each value of matrix by det of original matrix
     inverse_matrix = matrix_transpose(cofactor_matrix)
@@ -182,6 +182,7 @@ def matrix_inverse(matrix = None):
         for col in range(size_of_matrix):
             inverse_matrix[row][col] = round(inverse_matrix[row][col] / det, 2)
 
+    print(f"Inverse Matrix: {inverse_matrix}")
     return inverse_matrix
         
 def create_matrix(op ,sizex_f, sizey_f, sizex_s, sizey_s):
