@@ -22,13 +22,18 @@ def set_menu():
         
         sets = create_set()
         if choice == 1:
-            set_union(sets[0], sets[1])
+            result = set_union(sets[0], sets[1])
         elif choice == 2:
-            set_intersection(sets[0], sets[1])
+            result = set_intersection(sets[0], sets[1])
         elif choice == 3:
-            set_difference(sets[0], sets[1])
+            result = set_difference(sets[0], sets[1])
         elif choice == 4:
-            set_complement(sets[0], sets[1])
+            result = set_complement(sets[0], sets[1])
+            
+        if(result is not None):
+            print(f"{Fore.CYAN}Result: {result}{Style.RESET_ALL}")
+        
+        input(Fore.YELLOW + "\nPress Enter to continue..." + Style.RESET_ALL)
 
 def set_union(setA: list, setB: list):      
     temp = setA  
@@ -42,7 +47,7 @@ def set_union(setA: list, setB: list):
             if(setA[j] > setA[j+1]):
                 setA[j], setA[j+1] = setA[j+1], setA[j]
     
-    print(f"Set A : {temp} | Set B : {setB} \nSet A Union with Set B = {setA}")
+    print(f"{Fore.GREEN}Set A : {temp} | Set B : {setB} \nSet A Union with Set B")
     return setA        
 
 def set_intersection(setA: list, setB: list):
@@ -52,7 +57,7 @@ def set_intersection(setA: list, setB: list):
         if(val in setB and not result_set.__contains__(val)):
             result_set.append(val)
     
-    print(f"Set A : {setA} | Set B : {setB} \nSet A Intersect with Set B = {result_set}")
+    print(f"{Fore.GREEN}Set A : {setA} | Set B : {setB} \nSet A Intersect with Set B")
     return result_set
 
 def set_difference(setA: list, setB: list):
@@ -62,7 +67,7 @@ def set_difference(setA: list, setB: list):
             result_set.append(val)
         
 
-    print(f"Set A : {setA} | Set B : {setB} \nSet A Difference with Set B = {result_set}")
+    print(f"{Fore.GREEN}Set A : {setA} | Set B : {setB} \nSet A Difference with Set B")
     return result_set
     
 def set_complement(setA: list, setB: list):
@@ -76,18 +81,21 @@ def set_complement(setA: list, setB: list):
     return result_set
 
 def create_set():
-    sizeA = int(input("Size of Set A: "))
-    sizeB = int(input("Size of Set B: "))
+    print(f"{Fore.CYAN}Create Set")
+    sizeA = int(input(f"{Fore.GREEN}Size of Set A: "))
+    sizeB = int(input(f"{Fore.GREEN}Size of Set B: "))
     
     setA = []
     setB = []
     
+    print(f"{Fore.CYAN}\nCreate Element of Set A")
     for i in range(sizeA):
-        val = int(input(f"Element {i} | Value : "))
+        val = int(input(f"{Fore.GREEN}Element {i+1} | Value : "))
         setA.append(val)
         
+    print(f"{Fore.CYAN}\nCreate Element of Set B")    
     for i in range(sizeB):
-        val = int(input(f"Element {i} | Value : "))
+        val = int(input(f"{Fore.GREEN}Element {i+1} | Value : "))
         setB.append(val)
         
     return [setA, setB]
