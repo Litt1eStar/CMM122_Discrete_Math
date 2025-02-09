@@ -25,5 +25,14 @@ class TestSetOperations(unittest.TestCase):
         
         result = set_difference(setA, setB)
         self.assertEqual(result, expected_result)
+    
+    def test_set_complement(self):
+        setA = [1, 2, 3]
+        setB = [1, 2, 3, 4, 5]
+        expected_result = [4, 5]
+        
+        result = set_complement(setA, setB)
+        self.assertEqual(result, expected_result)
+        
 if __name__ == '__main__':
     unittest.main()
