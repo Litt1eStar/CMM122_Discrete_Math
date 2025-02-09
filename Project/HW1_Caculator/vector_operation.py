@@ -17,7 +17,7 @@ def vector_menu():
         if choice == 8:
             break
         
-        if choice == 1:
+        if choice == 1:            
             vector_addition()
         elif choice == 2:
             vector_subtraction()
@@ -52,3 +52,21 @@ def vector_magnitude():
 
 def vector_normalization():
     return
+
+def create_two_vector():
+    size_of_vector = 3
+
+    vector_a = []
+    vector_b = []
+    for i in range(size_of_vector):
+        vector_index = 'i' if i == 0 else 'j' if i == 1 else 'k' if i == 2 else None
+        val = int(input(f"First Vector | {vector_index}: "))
+        vector_a.append(val)
+        
+    for i in range(size_of_vector):
+        vector_index = 'i' if i == 0 else 'j' if i == 1 else 'k' if i == 2 else None
+        val = int(input(f"Second Vector | {vector_index}: "))
+        vector_b.append(val)
+    
+    return [vector_a, vector_b]
+        
