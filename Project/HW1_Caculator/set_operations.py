@@ -36,7 +36,7 @@ def set_union(setA: list, setB: list):
                 setA[j], setA[j+1] = setA[j+1], setA[j]
     
     print(f"Set A : {temp} | Set B : {setB} \nSet A Union with Set B = {setA}")
-            
+    return setA        
 
 def set_intersection(setA: list, setB: list):
     result_set = []
