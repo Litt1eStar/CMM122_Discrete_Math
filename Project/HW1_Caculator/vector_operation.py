@@ -40,7 +40,11 @@ def vector_addition():
     print(result_vector)
     
 def vector_subtraction():
-    return
+    vectors = create_two_vector()
+    vector_a = vectors[0]
+    vector_b = vectors[1]
+    result_vector = [vector_a[0]-vector_b[0], vector_a[1]-vector_b[1], vector_a[2]-vector_b[2]]
+    print(result_vector)
 
 def vector_scalar_multiplication():
     return
