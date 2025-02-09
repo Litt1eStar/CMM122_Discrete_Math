@@ -17,5 +17,13 @@ class TestSetOperations(unittest.TestCase):
         
         result = set_intersection(setA, setB)
         self.assertEqual(result, expected_result)
+        
+    def test_set_difference(self):
+        setA = [1, 2, 3]
+        setB = [2, 3]
+        expected_result = [1]
+        
+        result = set_difference(setA, setB)
+        self.assertEqual(result, expected_result)
 if __name__ == '__main__':
     unittest.main()
