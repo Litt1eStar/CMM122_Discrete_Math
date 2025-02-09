@@ -99,6 +99,7 @@ def inverse_relation(set = None):
         inverse_relation.add((y, x))
         
     print(f"Relation: {set} | Inverse of Relation: {inverse_relation}")
+    return inverse_relation
     
 def create_single_relation():
     size = int(input("Size of relation you want to create: "))

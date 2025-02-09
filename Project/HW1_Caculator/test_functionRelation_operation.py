@@ -45,5 +45,12 @@ class TestFunctionRelationOperation(unittest.TestCase):
         result2 = is_surjective_function(relation2)
         self.assertEqual(result2, expected_result2)
         
+    def test_inverse_relation(self):
+        relation = {(1, 2), (3, 4)}
+        expected_result = {(2, 1), (4, 3)}
+        
+        result = inverse_relation(relation)
+        self.assertEqual(result, expected_result)
+        
 if __name__ == '__main__':
     unittest.main()
