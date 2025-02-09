@@ -39,5 +39,14 @@ class TestMatrixOperations(unittest.TestCase):
         
         result = matrix_transpose(matrix_a)
         self.assertEqual(result, expected_result)
+        
+    def test_matrix_determinant(self):
+        matrix_a = [[1, 4, 3],
+                    [4, 9, 2],
+                    [7, 0, 9]]
+        expected_result = -196
+        
+        result = matrix_determinant(matrix_a)
+        self.assertEqual(result, expected_result)
 if __name__ == '__main__':
     unittest.main()
