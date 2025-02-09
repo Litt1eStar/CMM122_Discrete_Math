@@ -31,5 +31,12 @@ class TestVectorOperation(unittest.TestCase):
         result = vector_dot_product(vectors)
         self.assertEqual(result, expected_result)
         
+    def test_vector_cross_product(self):
+        vectors = [[1, 2, 3], [4, 5, 6]]
+        expected_result = [-3, 6, -3]
+        
+        result = vector_cross_product(vectors)
+        self.assertEqual(result, expected_result)
+        
 if __name__ == '__main__':
     unittest.main()    

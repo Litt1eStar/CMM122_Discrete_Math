@@ -104,6 +104,8 @@ def vector_cross_product(vectors = None):
     ]
     
     print(f"Cross Product: {result_vector}")
+    
+    return result_vector
 
 def create_two_vector():
     size_of_vector = int(input("Size of Vector(2, 3): "))
