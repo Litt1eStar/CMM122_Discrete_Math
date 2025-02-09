@@ -1,14 +1,20 @@
 from utils import get_choice
+from colorama import Fore, Style
+from tabulate import tabulate
 
 def set_menu():
     while True:
-        print("\nSet Operations:")
-        print("(1) Union")
-        print("(2) Intersect")
-        print("(3) Difference")
-        print("(4) Complement")
-        print("(5) Return to Previous Menu")
-
+        menu_options = [
+            ["1", "Union"],
+            ["2", "Intersect"],
+            ["3", "Difference"],
+            ["4", "Complement"],
+            ["5", "Return to Previous Menu"],
+        ]
+        
+        print(Fore.GREEN + "\n\tSet Operations\n" + Style.RESET_ALL)
+        print(tabulate(menu_options, headers=["Options", "Operation"], tablefmt="heavy_outline"))
+        
         choice = get_choice(1, 5)
         if choice == 5:
             break

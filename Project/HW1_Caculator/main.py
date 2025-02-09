@@ -4,6 +4,9 @@ from function_relation import function_menu
 from set_operations import set_menu
 from vector_operation import vector_menu
 
+from colorama import Fore, Style
+from tabulate import tabulate
+
 def main():
     
     while True:
@@ -14,21 +17,30 @@ def main():
             
             
 def main_menu():
-    print("Welcome to Super Caculator")
-    print("(1) Start")
-    print("(2) Exit")
+    
+    menu_options = [
+            ["1", "Start"],
+            ["2", "Exit"],
+        ]
+
+    print(Fore.WHITE + Style.BRIGHT + "\nWelcome to Super Calculator\n" + Style.RESET_ALL)
+    print(tabulate(menu_options, headers=["Option", "Operation"], tablefmt="mixed_outline"))
     
     choice = get_choice(1, 2)
     return choice
         
 def operator_ui():
     while True:
-        print("What do you want to do?")
-        print("(1) Matrix")
-        print("(2) Function and Relation")
-        print("(3) Set")
-        print("(4) Vector")
-        print("(5) Return to Main Menu")
+        menu_options = [
+            ["1", "Matrix"],
+            ["2", "Function and Relation"],
+            ["3", "Set"],
+            ["4", "Vector"],
+            ["5", "Return to Main Menu"]
+        ]
+
+        print(Fore.GREEN+ Style.BRIGHT + "\n     Welcome to Super Calculator\n" + Style.RESET_ALL)
+        print(tabulate(menu_options, headers=["Option", "Operation"], tablefmt="mixed_outline"))
         
         choice = get_choice(1, 5)
         

@@ -1,14 +1,20 @@
 from utils import get_choice
+from colorama import Fore, Style
+from tabulate import tabulate
 
 def function_menu():
     while True:
-        print("\nFunction & Relation Operations:")
-        print("(1) Is Function")
-        print("(2) Find Domain and Range")
-        print("(3) Determine Injective Function(ONE TO ONE)")
-        print("(4) Determine Surjective Function(MANY TO ONE)")
-        print("(5) Find Inverse Relation")
-        print("(6) Return to Previous Menu")
+        menu_options = [
+            ["1", "Is Function"],
+            ["2", "Find Domain and Range"],
+            ["3", "Determine Injective Function (ONE TO ONE)"],
+            ["4", "Determine Surjective Function (MANY TO ONE)"],
+            ["5", "Find Inverse Relation"],
+            ["6", "Return to Previous Menu"]
+        ]
+        
+        print(Fore.GREEN + "\n\t\tFunction and Relation\n" + Style.RESET_ALL)
+        print(tabulate(menu_options, headers=["Options", "Operation"], tablefmt="heavy_outline"))
 
         choice = get_choice(1, 6)
         if choice == 6:

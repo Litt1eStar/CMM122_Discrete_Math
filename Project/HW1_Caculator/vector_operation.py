@@ -1,16 +1,21 @@
 from utils import get_choice
-
+from colorama import Fore, Style
+from tabulate import tabulate
 
 def vector_menu():
     while True:
-        print("\nVector Operations:")
-        print("(1) Addition")
-        print("(2) Subtraction")
-        print("(3) Scalar Multiplication")
-        print("(4) Dot Product")
-        print("(5) Cross Product")
-        print("(6) Return to Mainmenu")
-
+        menu_options = [
+            ["1", "Addtion"],
+            ["2", "Subtraction"],
+            ["3", "Scalar Multiplication"],
+            ["4", "Dot Product"],
+            ["5", "Cross Product"],
+            ["6", "Return to Previous Menu"]
+        ]
+        
+        print(Fore.GREEN + "\n\tVector Operations\n" + Style.RESET_ALL)
+        print(tabulate(menu_options, headers=["Options", "Operation"], tablefmt="heavy_outline"))
+        
         choice = get_choice(1, 6)
         if choice == 6:
             break

@@ -1,16 +1,23 @@
 from utils import get_choice, print_matrix
+from colorama import Fore, Style
+from tabulate import tabulate
 
 def matrix_menu():
     while True:
-        print("\nMatrix Operations:")
-        print("(1) Addition")
-        print("(2) Subtraction")
-        print("(3) Multiplication")
-        print("(4) Scalar Multiplication")
-        print("(5) Transpose of Matrix")
-        print("(6) Determinant of Matrix")
-        print("(7) Inverse of Matrix")
-        print("(8) Return to Mainmenu")
+        menu_options = [
+            ["1", "Addition"],
+            ["2", "Subtraction"],
+            ["3", "Multiplication"],
+            ["4", "Scalar Multiplication"],
+            ["5", "Transpose"],
+            ["6", "Determinant"],
+            ["7", "Inverse"],
+            ["8", "Exit"]
+        ]
+
+        print(Fore.GREEN + "\n\tMatrix Operations\n" + Style.RESET_ALL)
+        print(tabulate(menu_options, headers=["Option", "Operation"], tablefmt="heavy_outline"))
+
 
         choice = get_choice(1, 8)
         if choice == 8:
