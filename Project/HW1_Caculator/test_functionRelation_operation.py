@@ -1,5 +1,5 @@
 import unittest
-from function_relation import isFunction, is_surjective_function, is_injective_function, domain_and_range, inverse_relation
+from function_relation import isFunction , domain_and_range, inverse_relation
 class TestFunctionRelationOperation(unittest.TestCase):
     def test_is_function(self):
         relation1 = {(1, 2), (3, 4), (5, 6)}
