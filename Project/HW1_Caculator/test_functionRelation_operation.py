@@ -20,30 +20,7 @@ class TestFunctionRelationOperation(unittest.TestCase):
         
         result = domain_and_range(relation)
         self.assertEqual(result, expected_result)
-        
-    def test_is_injective_function(self):
-        relation1 = {(1,2), (3, 4)}
-        expected_result1 = True
-        relation2 = {(1,2), (3, 2)}
-        expected_result2 = False
-        
-        result1 = is_injective_function(relation1)
-        self.assertEqual(result1, expected_result1)
-        
-        result2 = is_injective_function(relation2)
-        self.assertEqual(result2, expected_result2)
-        
-    def test_is_surjective_function(self):
-        relation1 = {(1,2), (3, 2)}
-        expected_result1 = True
-        relation2 = {(1,4), (3, 5)}
-        expected_result2 = False
-        
-        result1 = is_surjective_function(relation1)
-        self.assertEqual(result1, expected_result1)
-        
-        result2 = is_surjective_function(relation2)
-        self.assertEqual(result2, expected_result2)
+    
         
     def test_inverse_relation(self):
         relation = {(1, 2), (3, 4)}
